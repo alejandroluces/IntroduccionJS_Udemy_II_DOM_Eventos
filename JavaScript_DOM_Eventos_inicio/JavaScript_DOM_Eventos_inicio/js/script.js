@@ -102,84 +102,76 @@ formulario.addEventListener('submit', function(evento) {
 
     if(nombre === '' || email === '' || mensaje === '') {
         
-        mostrarError('Todos los campos son Obligatorios')
+        mostrarAlerta('Todos los campos son Obligatorios',true)
         return; // Corta la ejecucion del codigo
     }
 
  // crear la alerta de Enviado Correctamente
     
-    mostrarMensaje('Enviado Correctamente')
-
-
-    
-
-
+        mostrarAlerta('Enviado Correctamente')
 })
-
-
 
 function leerTexto(e){
     // console.log(e.target.value);
     datos[e.target.id] = e.target.value;
 
-    // console.log(datos);
-    
-    
 }
 
 // Mostrar alerta de error o de envio correcto en el DOM
 
-function mostrarMensaje(mensaje){
-    const alerta = document.createElement('P')
-    alerta.textContent = mensaje
-    alerta.classList.add('correcto')
-    formulario.appendChild(alerta);
-
-    // Desaparezca despues de 5 segundos
-    setTimeout(() => {
-        alerta.remove()
-    }
-    , 5000);
-
-}
-
-function mostrarError(mensaje) {
-   
-    const error = document.createElement('P')
-    console.log(error);
-    
-    error.textContent = mensaje
-    error.classList.add('error')
-
-    formulario.appendChild(error)
-
-    // Desaparezca despues de 5 segundos
-    setTimeout(() => {
-        error.remove()
-    }, 5000);
-
-
-
-}
-
-// function mostrarAlerta(mensaje, error = null) {
-   
+// function mostrarMensaje(mensaje){
 //     const alerta = document.createElement('P')
-//     console.log(alerta);
-    
 //     alerta.textContent = mensaje
-//     if(error) {
-//         alerta.classList.add('error')
-//     } else {
-//         alerta.classList.add('correcto')
-//     }
-
-//     formulario.appendChild(alerta)
+//     alerta.classList.add('correcto')
+//     formulario.appendChild(alerta);
 
 //     // Desaparezca despues de 5 segundos
 //     setTimeout(() => {
 //         alerta.remove()
+//     }
+//     , 5000);
+
+// }
+
+// function mostrarError(mensaje) {
+   
+//     const error = document.createElement('P')
+//     console.log(error);
+    
+//     error.textContent = mensaje
+//     error.classList.add('error')
+
+//     formulario.appendChild(error)
+
+//     // Desaparezca despues de 5 segundos
+//     setTimeout(() => {
+//         error.remove()
 //     }, 5000);
+
+
+
+// }
+
+function mostrarAlerta(mensaje, error = null) {
+   
+    const alerta = document.createElement('P')
+    alerta.textContent = mensaje
+
+
+    if(error) {
+        alerta.classList.add('error')
+    } else {
+        alerta.classList.add('correcto')
+    }
+
+    formulario.appendChild(alerta)
+
+    // Desaparezca despues de 5 segundos
+    setTimeout(() => {
+        alerta.remove()
+    }, 5000);
+
+}
 
 
     
